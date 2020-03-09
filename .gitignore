@@ -1,0 +1,9 @@
+## 文件系统
+.DS_Store
+
+## 编辑器
+/.idea/
+
+## 构建
+Cargo.lock
+target/
