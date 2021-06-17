@@ -1,0 +1,6 @@
+# 处理文件目录
+path = "/Users/lilei/Downloads/test"
+# 排除文件前缀
+exclude_prefix = ["target"]
+# 排除文件后缀
+exclude_suffix = ["lock"]
