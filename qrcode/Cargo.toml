@@ -2,7 +2,7 @@
 name = "qrcode-record"
 version = "0.1.0"
 authors = ["Li Lei <this.lilei@gmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies.qrcode]
 version = "0.11"

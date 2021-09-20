@@ -1,0 +1,18 @@
+[package]
+name = "crypto-record"
+version = "0.1.0"
+authors = ["Li Lei <this.lilei@gmail.com>"]
+edition = "2021"
+
+[dependencies.rust-crypto]
+version = "0.2"
+default-features = false
+
+[dependencies.clap]
+version = "2.33"
+default-features = false
+
+[dependencies.hex]
+version = "0.4"
+default-features = false
+features = ["std"]
