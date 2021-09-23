@@ -7,3 +7,4 @@
 ## 构建
 Cargo.lock
 target/
+/test/yew/dist/
