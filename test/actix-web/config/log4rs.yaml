@@ -1,0 +1,22 @@
+refresh_rate: 30 seconds
+appenders:
+  stdout:
+    kind: console
+    encoder:
+      pattern: "{d(%F %H:%M:%S%.3f)} - {m}{n}"
+  main:
+    kind: file
+    path: /Users/lilei/log/actix-web.log
+    encoder:
+      pattern: "{d(%F %H:%M:%S%.3f)} - {m}{n}"
+root:
+  level: warn
+  appenders:
+    - stdout
+loggers:
+  main:
+    level: info
+    appenders:
+      - main
+      - stdout
+    additive: false

@@ -1,0 +1,19 @@
+[package]
+name = "actix-web-record"
+version = "0.1.0"
+authors = ["Li Lei <this.lilei@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+serde = "1.0"
+actix-web = "4.0"
+dotenv = "0.15"
+log = "0.4"
+log4rs = "1.0"
+
+[dependencies.sqlx]
+version = "0.5"
+features = [
+    "postgres",
+    "runtime-actix-rustls"
+]
