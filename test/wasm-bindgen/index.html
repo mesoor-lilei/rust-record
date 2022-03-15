@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Wasm</title>
-    <style>
-        html, body {
-            height: 100%;
-        }
+	<meta charset="UTF-8">
+	<title>Wasm</title>
+	<style>
+		html, body {
+			height: 100%;
+		}
 
-        textarea {
-            width: 100%;
-            height: 50%;
-        }
+		textarea {
+			width: 100%;
+			height: 50%;
+		}
 
-        button {
-            width: 20%;
-            height: 10%;
-            font-size: 2rem;
-            display: block;
-            margin: auto;
-        }
-    </style>
+		button {
+			font-size: 2rem;
+		}
+	</style>
 </head>
 <body>
-<textarea>{"key":"value"}</textarea>
-<button>format</button>
-<script>
-    const button = document.querySelector('button')
-    const textarea = document.querySelector('textarea')
-    import('./pkg/wasm_bindgen_record.js').then(async wasm => {
-        await wasm.default()
-        button.onclick = () => textarea.value = wasm.format(textarea.value)
-    })
+<label>
+	<textarea id="text">{"key":"value"}</textarea>
+</label>
+<button id="expand">expand</button>
+<button id="collapse">collapse</button>
+<script type="module">
+	import init, {expand, collapse} from './pkg/wasm_bindgen_record.js'
+
+	const expandButton = document.getElementById('expand')
+	const collapseButton = document.getElementById('collapse')
+	const text = document.getElementById('text')
+
+	init().then(() => {
+		expandButton.onclick = () => text.value = expand(text.value)
+		collapseButton.onclick = () => text.value = collapse(text.value)
+	})
 </script>
 </body>
 </html>
