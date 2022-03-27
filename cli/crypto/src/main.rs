@@ -3,7 +3,7 @@ extern crate clap;
 
 use std::error::Error;
 
-use clap::{App, Arg, ArgMatches};
+use clap::{Arg, ArgMatches, Command};
 use crypto::aes::KeySize::KeySize128;
 use crypto::blockmodes::PkcsPadding;
 use crypto::buffer::{RefReadBuffer, RefWriteBuffer};
@@ -11,20 +11,20 @@ use crypto::digest::Digest;
 use crypto::md5::Md5;
 
 fn matches() -> ArgMatches {
-    App::new(crate_name!())
+    Command::new(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
         .about(crate_description!())
         .subcommand(
-            App::new("md5")
+            Command::new("md5")
                 .about("MD5 加密")
                 .arg(Arg::new("text").help("明文").required(true)),
         )
-        .subcommand(App::new("aes").about("AES 加密").args(&[
+        .subcommand(Command::new("aes").about("AES 加密").args(&[
             Arg::new("key").help("密钥").required(true),
             Arg::new("text").help("明文").required(true),
         ]))
-        .subcommand(App::new("unaes").about("AES 解密").args(&[
+        .subcommand(Command::new("unaes").about("AES 解密").args(&[
             Arg::new("key").help("密钥").required(true),
             Arg::new("text").help("密文").required(true),
         ]))
