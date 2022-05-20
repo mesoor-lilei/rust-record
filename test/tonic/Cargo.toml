@@ -1,0 +1,22 @@
+[package]
+name = "tonic-record"
+version = "0.1.0"
+authors = ["Li Lei <this.lilei@gmail.com>"]
+edition = "2021"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+[dependencies]
+anyhow = "1.0.57"
+tonic = "0.7.2"
+prost = "0.10.3"
+tokio = { version = "1.18.2", features = ["macros", "rt-multi-thread"] }
+
+[build-dependencies]
+tonic-build = "0.7.2"
